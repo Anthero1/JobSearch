@@ -1,14 +1,13 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Main from "./components/Main";
+import Navbar from "./components/Navbar/Navbar";
+import "./App.css";
 
-export default function App() {
+function App() {
   return (
-    <div className="container">
+    <div className="App">
       <Navbar />
-      <Main />
-      <input type="text" placeholder="Search"></input>
-      <button>Search</button>
     </div>
   );
 }
+
+export default App;
