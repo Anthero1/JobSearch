@@ -3,9 +3,8 @@ import "./Fav.css";
 
 function Fav({ dataArray }) {
   //TODO: MAKE THIS LIST FROM A DATABASE
-  let state = {
-    listitems: ["fasav1", "fav2", "asdaskjldfhaskljdfhkljds"],
-  };
+
+  let lst;
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     fetch("/api")
@@ -13,7 +12,15 @@ function Fav({ dataArray }) {
       .then((data) => setData(data.message));
   }, []);
 
-  // alert(this.state.data);
+  if (typeof data == "string") {
+    lst = data.split(" ");
+  } else {
+    lst = [];
+  }
+  let state = {
+    listitems: lst,
+  };
+
   return (
     <div
       style={{
@@ -30,7 +37,7 @@ function Fav({ dataArray }) {
             <li>{listitem}</li>
           ))}
         </ul>
-        <p>{!data ? "Loading..." : data}</p>
+        {/* <p>{!data ? "Loading..." : data}</p> */}
       </React.Fragment>
     </div>
   );
