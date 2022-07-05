@@ -1,32 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Fav.css";
 
-class About extends React.Component {
+function Fav({ dataArray }) {
   //TODO: MAKE THIS LIST FROM A DATABASE
-  state = {
-    listitems: ["fav1", "fav2", "asdaskjldfhaskljdfhkljds"],
+  let state = {
+    listitems: ["fasav1", "fav2", "asdaskjldfhaskljdfhkljds"],
   };
-  render() {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "90vh",
-          fontSize: "30pt",
-        }}
-      >
-        <React.Fragment>
-          <ul className="fav-list">
-            {this.state.listitems.map((listitem) => (
-              <li>{listitem}</li>
-            ))}
-          </ul>
-        </React.Fragment>
-      </div>
-    );
-  }
+  const [data, setData] = React.useState(null);
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
+  // alert(this.state.data);
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "90vh",
+        fontSize: "30pt",
+      }}
+    >
+      <React.Fragment>
+        <ul className="fav-list">
+          {state.listitems.map((listitem) => (
+            <li>{listitem}</li>
+          ))}
+        </ul>
+        <p>{!data ? "Loading..." : data}</p>
+      </React.Fragment>
+    </div>
+  );
 }
 
-export default About;
+export default Fav;

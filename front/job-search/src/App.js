@@ -7,6 +7,7 @@ import "./App.css";
 
 function App() {
   let Component;
+  let isFav = false;
 
   switch (window.location.pathname) {
     case "/":
@@ -19,6 +20,7 @@ function App() {
       Component = Account;
       break;
   }
+
   return (
     <div className="App">
       <Navbar />
