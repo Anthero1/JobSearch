@@ -9,3 +9,7 @@ Aggregates job listing
 
 - react-router-dom react-icons
 - styled-components
+
+# APIs or External Items
+
+- Font Awesome

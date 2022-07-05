@@ -1,23 +1,32 @@
 import React from "react";
+import "./Fav.css";
 
-const About = () => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "90vh",
-        fontSize: "30pt",
-      }}
-    >
-      <ul>
-        <li>fav1</li>
-        <li>fav2</li>
-        <li>to be added dynamically with array</li>
-      </ul>
-    </div>
-  );
-};
+class About extends React.Component {
+  //TODO: MAKE THIS LIST FROM A DATABASE
+  state = {
+    listitems: ["fav1", "fav2", "asdaskjldfhaskljdfhkljds"],
+  };
+  render() {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "90vh",
+          fontSize: "30pt",
+        }}
+      >
+        <React.Fragment>
+          <ul className="fav-list">
+            {this.state.listitems.map((listitem) => (
+              <li>{listitem}</li>
+            ))}
+          </ul>
+        </React.Fragment>
+      </div>
+    );
+  }
+}
 
 export default About;

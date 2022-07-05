@@ -13,7 +13,7 @@ class Navbar extends React.Component {
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
-          Indubitably<i className="fab fa-react"></i>
+          Indubitably<i className="fab fa-rebel"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i
