@@ -37,7 +37,6 @@ function Fav({ dataArray }) {
             <li>{listitem}</li>
           ))}
         </ul>
-        {/* <p>{!data ? "Loading..." : data}</p> */}
       </React.Fragment>
     </div>
   );

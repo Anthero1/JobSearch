@@ -6,6 +6,8 @@ Aggregates job listing
 
 - Node
 - NPM
+- Axios
+- CORS
 
 - react-router-dom react-icons
 - styled-components
