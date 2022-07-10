@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Fav.css";
 
-function Fav({ dataArray }) {
+function Fav() {
   //TODO: MAKE THIS LIST FROM A DATABASE
 
   let lst;

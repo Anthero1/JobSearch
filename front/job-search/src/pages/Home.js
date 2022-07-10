@@ -4,9 +4,9 @@ import "./Home.css";
 function Home() {
   const [data, setData] = useState({
     main: "a",
-    keywd1: "b",
-    keywd2: "c",
-  }); //Keywords are for additional search parameters (distance, etc)
+    location: "Ottawa",
+    range: "100",
+  });
 
   function handle(e) {
     const newdata = { ...data };
@@ -17,6 +17,8 @@ function Home() {
 
   function submit(e) {
     e.preventDefault();
+
+    console.log("working");
     fetch("/create", {
       method: "POST",
       headers: {
@@ -25,7 +27,9 @@ function Home() {
       body: JSON.stringify({
         data,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
   return (
     <div

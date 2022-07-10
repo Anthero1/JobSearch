@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Fav from "./pages/Fav";
 import Account from "./pages/Account";
+import Search from "./pages/Search";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
       break;
     case "/account":
       Component = Account;
+      break;
+    case "/search":
+      Component = Search;
       break;
   }
 
