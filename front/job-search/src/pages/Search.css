@@ -1,0 +1,14 @@
+.container {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+}
+li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.jobTitle {
+  font-weight: bold;
+}

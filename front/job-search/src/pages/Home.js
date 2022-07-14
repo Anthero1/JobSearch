@@ -15,21 +15,11 @@ function Home() {
     console.log(newdata);
   }
 
-  function submit(e) {
-    e.preventDefault();
+  function onSubmit() {
+    localStorage.setItem("info", JSON.stringify(data));
 
-    console.log("working");
-    fetch("/create", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    window.location.href = "/search";
+    // console.log("working");
   }
   return (
     <div
@@ -40,17 +30,18 @@ function Home() {
         height: "90vh",
       }}
     >
-      <form onSubmit={(e) => submit(e)}>
-        <input
-          onChange={(e) => handle(e)}
-          id="main"
-          value={data.name}
-          type="text"
-          className="mainTxt"
-          placeholder="Search"
-        ></input>
-        <button className="search">Go</button>
-      </form>
+      <input
+        onChange={(e) => handle(e)}
+        id="main"
+        value={data.main}
+        type="text"
+        className="mainTxt"
+        placeholder="Search"
+      ></input>
+
+      <button className="search" onClick={() => onSubmit(data.main)}>
+        Go
+      </button>
     </div>
   );
 }

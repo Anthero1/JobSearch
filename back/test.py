@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import math
+import json
 
 output = []
 search_term = sys.argv[1]	#change spaces to +
@@ -65,22 +66,35 @@ for page in range(0, 10, 10): #change 20 to pages_converted, but there's too man
 sorted_jobs = sorted(jobs_found.items(), key=lambda x: x[1]['ratings'])
 
 for job in sorted_jobs:
-	output.append(job[0])
-	output.append('Rated ' + job[1]['ratings'] + " stars")
-	output.append(job[1]['location'] + '\n')
-	output.append('Job description:')
-	for item in job[1]['job description']:
-		output.append(item)
-	output.append('\nLink: ' + job[1]['job link'])
-	
-#for key in jobs_found:
-    #print('\n' + key)
-    #print('Ratings: ' + jobs_found.get(key)['ratings'] + ' stars')
-    #print('Location: '+ jobs_found.get(key)['location'])
-    #print('\nJob Description:')
-    #for item in jobs_found.get(key)['job description']:
-    	#print(item)
-    #print('\nJob Link:' + jobs_found.get(key)['job link'])
-    #print('\n-------------------------------------')
-print(output)
+    output.append(job[0])
+    output.append('Rated ' + job[1]['ratings'] + " stars")
+    output.append(job[1]['location'])
+    output.append('Job description:')
+    for item in job[1]['job description']:
+        output.append(item)
+    output.append('Link: ' + job[1]['job link'])
+        
+
+    
+x =  json.loads('{}')
+
+# Format output as json
+for count, job in enumerate(sorted_jobs):
+    temp =  json.loads('{}')
+    temp.update({"job":job[0]})
+    temp.update({"rating": 'Rated ' + job[1]['ratings'] + " stars"})
+    temp.update({location: job[1]['location']})
+    descript = []
+    for item in job[1]['job description']:
+        descript.append(item)
+    temp.update({"description": descript})
+
+    temp.update({link: 'Link: ' + job[1]['job link']})
+    y = {str(count): temp}
+    x.update(y)
+
+    
+
+print(json.dumps(x))
+
 sys.stdout.flush

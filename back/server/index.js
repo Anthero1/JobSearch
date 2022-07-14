@@ -27,7 +27,7 @@ app.post("/create", function (req, res) {
   console.log(options);
   PythonShell.run("./test.py", options, function (err, data) {
     if (data != null) {
-      console.log(data.toString());
+      console.log(data[0]);
       if (err) res.send(err);
       res.json(data.toString());
     }

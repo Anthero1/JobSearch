@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Fav from "./pages/Fav";
@@ -7,28 +7,29 @@ import Search from "./pages/Search";
 import "./App.css";
 
 function App() {
+  const [input, setInput] = useState("");
   let Component;
-  let isFav = false;
 
   switch (window.location.pathname) {
     case "/":
-      Component = Home;
+      Component = <Home />;
       break;
     case "/favorites":
-      Component = Fav;
+      Component = <Fav />;
       break;
     case "/account":
-      Component = Account;
+      Component = <Account />;
       break;
     case "/search":
-      Component = Search;
+      Component = <Search />;
+
       break;
   }
 
   return (
     <div className="App">
       <Navbar />
-      <Component />
+      {Component}
     </div>
   );
 }
