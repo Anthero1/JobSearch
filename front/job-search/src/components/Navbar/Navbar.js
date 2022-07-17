@@ -10,6 +10,9 @@ class Navbar extends React.Component {
     this.setState({ clicked: !this.state.clicked });
   };
   render() {
+    // if (window.location.pathname == "/") {
+    //   document.getElementById("main").style.display = "black";
+    // }
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
@@ -20,6 +23,21 @@ class Navbar extends React.Component {
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
+
+        {window.location.pathname != "/" ? (
+          <input
+            // onChange={(e) => handle(e)}
+            id="main"
+            type="text"
+            className="mainTxt"
+            placeholder="Search"
+          ></input>
+        ) : null}
+        {window.location.pathname != "/" ? (
+          <button className="search" /*onClick={() => onSubmit(data.main}*/>
+            Go
+          </button>
+        ) : null}
         <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           {MenuItems.map((item, index) => {
             return (

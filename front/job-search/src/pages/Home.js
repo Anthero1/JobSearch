@@ -33,7 +33,6 @@ function Home() {
       <input
         onChange={(e) => handle(e)}
         id="main"
-        value={data.main}
         type="text"
         className="mainTxt"
         placeholder="Search"

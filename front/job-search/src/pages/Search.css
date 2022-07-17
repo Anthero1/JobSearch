@@ -1,9 +1,11 @@
 .container {
+  transform: translate(0, 100px);
   width: 80%;
 }
 
 ul {
   list-style-type: none;
+  padding-bottom: 10px;
 }
 li {
   padding-top: 5px;
@@ -11,4 +13,5 @@ li {
 }
 .jobTitle {
   font-weight: bold;
+  font-size: 16pt;
 }
