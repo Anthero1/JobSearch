@@ -1,6 +1,6 @@
 # JobSearch
 
-Aggregates job listing
+Aggregates job listing from various websites based on key search terms.
 
 # Required Libraries
 
