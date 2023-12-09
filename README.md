@@ -2,7 +2,6 @@
 
 ---------------
 Warning: this project is no longer functional. Monster and Indeed have changed their websites and the webscrapers no longer work.
-Also, some of the front end functionality such as the favorites section was never fully complete.
 ---------------
 
 Aggregates job listing from Indeed and Monster.com based on key search terms, location, and distance from location. Uses a react front end and then python web scrapers for aggregating the job listings.
